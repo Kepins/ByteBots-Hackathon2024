@@ -1,0 +1,106 @@
+body {
+    background-color: #dee9ff;
+}
+
+.registration-form {
+    padding: 50px 0;
+    margin-top: 50px;
+}
+
+.registration-form form {
+    background-color: #fff;
+    max-width: 600px;
+    margin: auto;
+    padding: 50px 70px;
+    border-radius: 30px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.registration-form .form-icon {
+    text-align: center;
+    background-color: #5990ff;
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-bottom: 50px;
+    line-height: 100px;
+}
+
+.registration-form .item {
+    border-radius: 20px;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+}
+
+.registration-form .check-health {
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #5990ff;
+    border: none;
+    color: white;
+    margin-top: 20px;
+}
+
+.registration-form .check-health i {
+    font-size: 30px;
+}
+
+.page-menu {
+    background-color: #fff;
+    font-family: Raleway, sans-serif;
+}
+
+.page-menu .navbar-brand {
+    color: #5990ff;
+    font-weight: bold;
+}
+
+h1 {
+    color: #5990ff;
+    font-family: Raleway, sans-serif;
+    font-weight: bold;
+}
+
+/* footer */
+.page-footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0
+}
+
+.page-footer hr {
+    border-width: 3px
+}
+
+.social>i {
+    padding: 1%;
+    font-size: 15px
+}
+
+.social>i:hover {
+    color: #957bda;
+    cursor: pointer
+}
+
+.policy>div {
+    padding: 4px
+}
+
+.heading {
+    font-family: 'Titillium Web', sans-serif;
+    color: black
+}
+
+.divider {
+    border-top: 2px solid
+}
+
+.logo-letter {
+    color:white;
+    background-color:#5990ff;
+}

@@ -94,3 +94,20 @@ h5 {
         margin-top: 10px;
     }
 }
+
+.radioBtn .notActive{
+    color: #3276b1;
+    background-color: #fff;
+}
+
+.radioBtn .notActive:hover {
+    color: #fff !important;
+    background-color: #0062cc;
+}
+
+.input-group {
+    align-items: end;
+}
+.btn-primary {
+    background-color: #5990ff;
+}

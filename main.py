@@ -1,6 +1,7 @@
 import pickle
 from functools import lru_cache
 from typing import Literal
+from fastapi.middleware.cors import CORSMiddleware
 
 import numpy as np
 from pydantic import BaseModel
@@ -19,6 +20,10 @@ def model_predict(x):
 from fastapi import FastAPI
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*']
+)
 
 class Input(BaseModel):
     age: int

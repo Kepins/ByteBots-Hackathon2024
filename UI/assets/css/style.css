@@ -46,10 +46,6 @@ body {
     margin-top: 20px;
 }
 
-.registration-form .check-health i {
-    font-size: 30px;
-}
-
 .page-menu {
     background-color: #fff;
     font-family: Raleway, sans-serif;
@@ -66,41 +62,28 @@ h1 {
     font-weight: bold;
 }
 
+h5 {
+    font-family: Raleway, sans-serif;
+    font-weight: 500;
+}
+
 /* footer */
 .page-footer ul {
     list-style-type: none;
     margin: 0;
-    padding: 0
-}
-
-.page-footer hr {
-    border-width: 3px
-}
-
-.social>i {
-    padding: 1%;
-    font-size: 15px
-}
-
-.social>i:hover {
-    color: #957bda;
-    cursor: pointer
-}
-
-.policy>div {
-    padding: 4px
-}
-
-.heading {
-    font-family: 'Titillium Web', sans-serif;
-    color: black
+    padding: 0;
 }
 
 .divider {
-    border-top: 2px solid
+    border-top: 1px solid;
+    border-color: #aaaaaa;
 }
 
 .logo-letter {
     color:white;
     background-color:#5990ff;
+}
+
+.special-font {
+    font-family: Raleway, sans-serif;
 }

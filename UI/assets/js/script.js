@@ -29,7 +29,7 @@ $('#thyroid_form').submit(function (event) {
 
     });
 
-    var json = JSON.stringify(object); // Convert the plain object to JSON
+    var json = JSON.stringify(object);
 
     console.log(json);
 
@@ -38,10 +38,10 @@ $('#thyroid_form').submit(function (event) {
         method: 'POST',
         contentType: "application/json; charset=utf-8",
         data: json,
-        processData: false, // No processing of data
+        processData: false,
         success: function (response) {
             console.log(response)
-            document.getElementById('result').innerHTML = response.prediction;
+            enableResultButton(response.prediction)
         },
         error: function (xhr, status, error) {
             alert('Your form was not sent successfully.');
@@ -49,3 +49,32 @@ $('#thyroid_form').submit(function (event) {
         }
     });
 });
+
+function disableAllResultButtons() {
+    var elements = document.querySelectorAll('.result-buttons');
+
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('active');
+        elements[i].classList.remove('notActive');
+        elements[i].classList.add('notActive');
+        elements[i].classList.add('disabled');
+    }
+}
+
+function enableResultButton(name) {
+    disableAllResultButtons()
+
+    var elements = document.querySelectorAll('#' + name);
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('notActive');
+        elements[i].classList.remove('disabled');
+        elements[i].classList.add('active');
+    }
+
+    var elements = document.querySelectorAll('.result-container');
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].classList.contains('d-none')) {
+            elements[i].classList.remove('d-none');
+        }
+    }
+}

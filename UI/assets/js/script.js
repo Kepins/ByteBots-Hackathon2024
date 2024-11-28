@@ -14,7 +14,19 @@ $('#thyroid_form').submit(function (event) {
 
     var object = {};
     formData.forEach(function(value, key) {
-        object[key] = value;
+        if (value === "true") {
+            object[key] = true
+        }
+        else if (value === "false") {
+            object[key] = false
+        }
+        else if (!isNaN(value) && value.trim() != "") {
+            object[key] = parseFloat(value)
+        }
+        else {
+            object[key] = value;
+        }
+
     });
 
     var json = JSON.stringify(object); // Convert the plain object to JSON
@@ -28,7 +40,8 @@ $('#thyroid_form').submit(function (event) {
         data: json,
         processData: false, // No processing of data
         success: function (response) {
-            alert('Form submitted successfully: ' + response);
+            console.log(response)
+            document.getElementById('result').innerHTML = response.prediction;
         },
         error: function (xhr, status, error) {
             alert('Your form was not sent successfully.');

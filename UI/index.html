@@ -43,18 +43,19 @@
         <div>
             <h1 class="text-center pb-4">Check your thyroid health</h1>
         </div>
-        <div class="form-group">
-            <input type="number" min="0" max="100" class="form-control item" name="age" placeholder="Age">
+        <div class="form-group row">
+            <label for="age" class="">Age</label>
+            <input type="number" id="age" min="0" max="100" class="form-control item" name="age" placeholder="Age">
         </div>
         <div class="form-group">
             <label for="sex" class="control-label text-right d-inline-block pr-4">Sex</label>
             <div class="d-inline-block">
                 <div class="input-group">
                     <div class="btn-group radioBtn">
-                        <a class="btn btn-primary btn-sm notActive" data-toggle="sex" data-title="F">Female</a>
+                        <a class="btn btn-primary btn-sm active" data-toggle="sex" data-title="F">Female</a>
                         <a class="btn btn-primary btn-sm notActive" data-toggle="sex" data-title="M">Male</a>
                     </div>
-                    <input type="hidden" name="sex" id="sex">
+                    <input type="hidden" name="sex" id="sex" value="F">
                 </div>
             </div>
         </div>
@@ -63,10 +64,10 @@
             <div class="d-inline-block">
                 <div class="input-group">
                     <div class="btn-group radioBtn">
-                        <a class="btn btn-primary btn-sm notActive" data-toggle="on_thyroxine" data-title="true">Yes</a>
+                        <a class="btn btn-primary btn-sm active" data-toggle="on_thyroxine" data-title="true">Yes</a>
                         <a class="btn btn-primary btn-sm notActive" data-toggle="on_thyroxine" data-title="false">No</a>
                     </div>
-                    <input type="hidden" name="on_thyroxine" id="on_thyroxine">
+                    <input type="hidden" name="on_thyroxine" id="on_thyroxine" value="true">
                 </div>
             </div>
         </div>
@@ -75,10 +76,10 @@
             <div class="d-inline-block">
                 <div class="input-group">
                     <div class="btn-group radioBtn">
-                        <a class="btn btn-primary btn-sm notActive" data-toggle="query_on_thyroxine" data-title="true">Yes</a>
+                        <a class="btn btn-primary btn-sm active" data-toggle="query_on_thyroxine" data-title="true">Yes</a>
                         <a class="btn btn-primary btn-sm notActive" data-toggle="query_on_thyroxine" data-title="false">No</a>
                     </div>
-                    <input type="hidden" name="query_on_thyroxine" id="query_on_thyroxine">
+                    <input type="hidden" name="query_on_thyroxine" id="query_on_thyroxine" value="true">
                 </div>
             </div>
         </div>
@@ -87,10 +88,10 @@
             <div class="d-inline-block">
                 <div class="input-group">
                     <div class="btn-group radioBtn">
-                        <a class="btn btn-primary btn-sm notActive" data-toggle="on_antithyroid_meds" data-title="true">Yes</a>
+                        <a class="btn btn-primary btn-sm active" data-toggle="on_antithyroid_meds" data-title="true">Yes</a>
                         <a class="btn btn-primary btn-sm notActive" data-toggle="on_antithyroid_meds" data-title="false">No</a>
                     </div>
-                    <input type="hidden" name="on_antithyroid_meds" id="on_antithyroid_meds">
+                    <input type="hidden" name="on_antithyroid_meds" id="on_antithyroid_meds" value="true">
                 </div>
             </div>
         </div>
@@ -99,10 +100,10 @@
             <div class="d-inline-block">
                 <div class="input-group">
                     <div class="btn-group radioBtn">
-                        <a class="btn btn-primary btn-sm notActive" data-toggle="sick" data-title="true">Yes</a>
+                        <a class="btn btn-primary btn-sm active" data-toggle="sick" data-title="true">Yes</a>
                         <a class="btn btn-primary btn-sm notActive" data-toggle="sick" data-title="false">No</a>
                     </div>
-                    <input type="hidden" name="sick" id="sick">
+                    <input type="hidden" name="sick" id="sick" value="true">
                 </div>
             </div>
         </div>
@@ -111,10 +112,10 @@
             <div class="d-inline-block">
                 <div class="input-group">
                     <div class="btn-group radioBtn">
-                        <a class="btn btn-primary btn-sm notActive" data-toggle="pregnant" data-title="true">Yes</a>
+                        <a class="btn btn-primary btn-sm active" data-toggle="pregnant" data-title="true">Yes</a>
                         <a class="btn btn-primary btn-sm notActive" data-toggle="pregnant" data-title="false">No</a>
                     </div>
-                    <input type="hidden" name="pregnant" id="pregnant">
+                    <input type="hidden" name="pregnant" id="pregnant" value="true">
                 </div>
             </div>
         </div>
@@ -123,10 +124,10 @@
             <div class="d-inline-block">
                 <div class="input-group">
                     <div class="btn-group radioBtn">
-                        <a class="btn btn-primary btn-sm notActive" data-toggle="thyroid_surgery" data-title="true">Yes</a>
+                        <a class="btn btn-primary btn-sm active" data-toggle="thyroid_surgery" data-title="true">Yes</a>
                         <a class="btn btn-primary btn-sm notActive" data-toggle="thyroid_surgery" data-title="false">No</a>
                     </div>
-                    <input type="hidden" name="thyroid_surgery" id="thyroid_surgery">
+                    <input type="hidden" name="thyroid_surgery" id="thyroid_surgery" value="true">
                 </div>
             </div>
         </div>
@@ -135,10 +136,10 @@
             <div class="d-inline-block">
                 <div class="input-group">
                     <div class="btn-group radioBtn">
-                        <a class="btn btn-primary btn-sm notActive" data-toggle="I131_treatment" data-title="true">Yes</a>
+                        <a class="btn btn-primary btn-sm active" data-toggle="I131_treatment" data-title="true">Yes</a>
                         <a class="btn btn-primary btn-sm notActive" data-toggle="I131_treatment" data-title="false">No</a>
                     </div>
-                    <input type="hidden" name="I131_treatment" id="I131_treatment">
+                    <input type="hidden" name="I131_treatment" id="I131_treatment" value="true">
                 </div>
             </div>
         </div>
@@ -147,10 +148,10 @@
             <div class="d-inline-block">
                 <div class="input-group">
                     <div class="btn-group radioBtn">
-                        <a class="btn btn-primary btn-sm notActive" data-toggle="query_hypothyroid" data-title="true">Yes</a>
+                        <a class="btn btn-primary btn-sm active" data-toggle="query_hypothyroid" data-title="true">Yes</a>
                         <a class="btn btn-primary btn-sm notActive" data-toggle="query_hypothyroid" data-title="false">No</a>
                     </div>
-                    <input type="hidden" name="query_hypothyroid" id="query_hypothyroid">
+                    <input type="hidden" name="query_hypothyroid" id="query_hypothyroid" value="true">
                 </div>
             </div>
         </div>
@@ -159,10 +160,10 @@
             <div class="d-inline-block">
                 <div class="input-group">
                     <div class="btn-group radioBtn">
-                        <a class="btn btn-primary btn-sm notActive" data-toggle="query_hyperthyroid" data-title="true">Yes</a>
+                        <a class="btn btn-primary btn-sm active" data-toggle="query_hyperthyroid" data-title="true">Yes</a>
                         <a class="btn btn-primary btn-sm notActive" data-toggle="query_hyperthyroid" data-title="false">No</a>
                     </div>
-                    <input type="hidden" name="query_hyperthyroid" id="query_hyperthyroid">
+                    <input type="hidden" name="query_hyperthyroid" id="query_hyperthyroid" value="true">
                 </div>
             </div>
         </div>
@@ -171,10 +172,10 @@
             <div class="d-inline-block">
                 <div class="input-group">
                     <div class="btn-group radioBtn">
-                        <a class="btn btn-primary btn-sm notActive" data-toggle="lithium" data-title="true">Yes</a>
+                        <a class="btn btn-primary btn-sm active" data-toggle="lithium" data-title="true">Yes</a>
                         <a class="btn btn-primary btn-sm notActive" data-toggle="lithium" data-title="false">No</a>
                     </div>
-                    <input type="hidden" name="lithium" id="lithium">
+                    <input type="hidden" name="lithium" id="lithium" value="true">
                 </div>
             </div>
         </div>
@@ -183,10 +184,10 @@
             <div class="d-inline-block">
                 <div class="input-group">
                     <div class="btn-group radioBtn">
-                        <a class="btn btn-primary btn-sm notActive" data-toggle="goitre" data-title="true">Yes</a>
+                        <a class="btn btn-primary btn-sm active" data-toggle="goitre" data-title="true">Yes</a>
                         <a class="btn btn-primary btn-sm notActive" data-toggle="goitre" data-title="false">No</a>
                     </div>
-                    <input type="hidden" name="goitre" id="goitre">
+                    <input type="hidden" name="goitre" id="goitre" value="true">
                 </div>
             </div>
         </div>
@@ -195,25 +196,34 @@
             <div class="d-inline-block">
                 <div class="input-group">
                     <div class="btn-group radioBtn">
-                        <a class="btn btn-primary btn-sm notActive" data-toggle="tumor" data-title="true">Yes</a>
+                        <a class="btn btn-primary btn-sm active" data-toggle="tumor" data-title="true">Yes</a>
                         <a class="btn btn-primary btn-sm notActive" data-toggle="tumor" data-title="false">No</a>
                     </div>
-                    <input type="hidden" name="tumor" id="tumor">
+                    <input type="hidden" name="tumor" id="tumor" value="true">
                 </div>
             </div>
         </div>
         <div class="form-group">
-            <input type="number" class="form-control item" name="hypopituitary" placeholder="Hypopituitary">
+            <label for="hypopituitary" class="control-label text-right d-inline-block pr-4">Hypopituitary</label>
+            <div class="d-inline-block">
+                <div class="input-group">
+                    <div class="btn-group radioBtn">
+                        <a class="btn btn-primary btn-sm active" data-toggle="hypopituitary" data-title="true">Yes</a>
+                        <a class="btn btn-primary btn-sm notActive" data-toggle="hypopituitary" data-title="false">No</a>
+                    </div>
+                    <input type="hidden" name="hypopituitary" id="hypopituitary" value="true">
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <label for="psych" class="control-label text-right d-inline-block pr-4">psych</label>
             <div class="d-inline-block">
                 <div class="input-group">
                     <div class="btn-group radioBtn">
-                        <a class="btn btn-primary btn-sm notActive" data-toggle="psych" data-title="true">Yes</a>
+                        <a class="btn btn-primary btn-sm active" data-toggle="psych" data-title="true">Yes</a>
                         <a class="btn btn-primary btn-sm notActive" data-toggle="psych" data-title="false">No</a>
                     </div>
-                    <input type="hidden" name="psych" id="psych">
+                    <input type="hidden" name="psych" id="psych" value="true">
                 </div>
             </div>
         </div>
@@ -236,6 +246,10 @@
             <input type="submit" class="btn btn-block check-health" value="Check your health">
         </div>
     </form>
+</div>
+
+<div class="result-container container">
+    <div id="result"></div>
 </div>
 
 <div class="container-fluid mt-4 pt-2 page-footer bg-white">
@@ -280,5 +294,6 @@
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <script src="assets/js/script.js"></script>
+<script src="assets/js/jquery-3.7.1.min.js"></script>
 </body>
 </html>

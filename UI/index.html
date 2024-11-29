@@ -45,27 +45,27 @@
             <h2 class="text-center pb-4 mt-4">Check your thyroid health</h2>
         </div>
         <div class="form-group">
-            <label class="inline-block">Your age</label>
+            <label class="text-label">Your age</label>
             <input type="number" id="age" min="0" max="100" class="form-control item inline-block" name="age" placeholder="write a number...">
         </div>
         <div class="form-group">
-            <label>T3 value</label>
+            <label class="text-label">T3 value</label>
             <input type="number" step="0.01" class="form-control item" name="T3" placeholder="write a number...">
         </div>
         <div class="form-group">
-            <label>TT4 value</label>
+            <label class="text-label">TT4 value</label>
             <input type="number" step="0.01" class="form-control item" name="TT4" placeholder="write a number...">
         </div>
         <div class="form-group">
-            <label>T4U value</label>
+            <label class="text-label">T4U value</label>
             <input type="number" step="0.01" class="form-control item" name="T4U" placeholder="write a number...">
         </div>
         <div class="form-group">
-            <label>FTI value</label>
+            <label class="text-label">FTI value</label>
             <input type="number" step="0.01" class="form-control item" name="FTI" placeholder="write a number...">
         </div>
         <div class="form-group">
-            <label>TSH value</label>
+            <label class="text-label">TSH value</label>
             <input type="number" step="0.01" class="form-control item" name="TSH" placeholder="write a number...">
         </div>
         <div class="form-group row">
@@ -254,15 +254,31 @@
     </form>
 </div>
 
-<div class="result-container container d-none">
+<div class="result-container container ">
     <h2 class="mb-4">Result</h2>
-    <p>This is your health result:</p>
+    <p>This is your health result based on your medical data:</p>
     <div class="d-inline-block">
         <div class="input-group d-inline-block text-right">
             <div class="btn-group radioBtn">
                 <a class="btn btn-blue btn-sm result-buttons notActive" data-title="Hypothyroid" id="Hypothyroid">Hypothyroid</a>
                 <a class="btn btn-blue btn-sm result-buttons active" data-title="Negative" id="Negative">Negative</a>
                 <a class="btn btn-blue btn-sm result-buttons notActive" data-title="Hyperthyroid" id="Hyperthyroid">Hyperthyroid</a>
+            </div>
+        </div>
+    </div>
+    <div class="image_result mt-4">
+        <div class="tile-progress tile-blue">
+            <div class="tile-header">
+                <h3>Image analyze result</h3>
+                <span>Detected severity of thyroid disease on image</span>
+            </div>
+            <div class="tile-progressbar">
+                <span style="width: 65.5%;"></span>
+            </div>
+            <div class="tile-footer">
+                <h4>
+                    <span class="pct-counter">2/5</span> disease level
+                </h4>
             </div>
         </div>
     </div>

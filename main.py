@@ -1,19 +1,31 @@
+import io
 import pickle
+from tensorflow.keras.models import load_model
+from PIL import Image
 from functools import lru_cache
 from typing import Literal
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import UploadFile
 
 import numpy as np
 from pydantic import BaseModel
 
 
 @lru_cache
-def load_model():
+def load_prediction_model():
     with open("decisiontree.bin", "rb") as f:
         return pickle.loads(f.read())
 
+@lru_cache
+def load_image_model():
+    return load_model("image_model.keras")
+
 def model_predict(x):
-    model = load_model()
+    model = load_prediction_model()
+    return model.predict(x)
+
+def model_image_predict(x):
+    model = load_image_model()
     return model.predict(x)
 
 
@@ -28,7 +40,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-class Input(BaseModel):
+
+class PerdictInput(BaseModel):
     age: int
     sex: Literal["M", "F"]
     on_thyroxine: bool
@@ -76,21 +89,42 @@ class Input(BaseModel):
             self.FTI,
         ]).reshape(1, -1)
 
-class Output(BaseModel):
+
+class PredictOutput(BaseModel):
     prediction: Literal["Negative", "Hyperthyroid", "Hypothyroid"]
 
     @staticmethod
-    def from_y(output: int):
+    def from_y(output: int) -> "PredictOutput":
         match output:
             case 0:
-                return Output(prediction="Negative")
+                return PredictOutput(prediction="Negative")
             case 1:
-                return Output(prediction="Hyperthyroid")
+                return PredictOutput(prediction="Hyperthyroid")
             case 2:
-                return Output(prediction="Hypothyroid")
+                return PredictOutput(prediction="Hypothyroid")
         raise ValueError(f"Wrong output: {output}")
 
 
-@app.post("/", name="predict")
-async def root(data: Input) -> Output:
-    return Output.from_y(model_predict(data.to_x()))
+class PredictImageOutput(BaseModel):
+    prediction: int
+
+    @staticmethod
+    def from_y(output: float) -> "PredictImageOutput":
+        prediction = max(min(int(output), 5), 1)
+        return PredictImageOutput(prediction=prediction)
+
+
+@app.post("/predict", name="predict")
+async def predict(data: PerdictInput) -> PredictOutput:
+    return PredictOutput.from_y(model_predict(data.to_x()))
+
+
+@app.post("/predict-image", name="predict-image")
+async def predict_image(file: UploadFile) -> PredictImageOutput:
+    image_data = await file.read()
+    image = Image.open(io.BytesIO(image_data))
+    image_rgb = image.convert("RGB")
+    resized_image = image_rgb.resize((200, 200))
+    image_matrix = np.expand_dims(np.array(resized_image), axis=0)
+    prediction = model_image_predict([image_matrix])
+    return PredictImageOutput.from_y(prediction + 1)

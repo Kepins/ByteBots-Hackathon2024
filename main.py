@@ -2,6 +2,7 @@ import pickle
 from functools import lru_cache
 from typing import Literal
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import UploadFile
 
 import numpy as np
 from pydantic import BaseModel
@@ -28,7 +29,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-class Input(BaseModel):
+
+class PerdictInput(BaseModel):
     age: int
     sex: Literal["M", "F"]
     on_thyroxine: bool
@@ -76,21 +78,36 @@ class Input(BaseModel):
             self.FTI,
         ]).reshape(1, -1)
 
-class Output(BaseModel):
+
+class PredictOutput(BaseModel):
     prediction: Literal["Negative", "Hyperthyroid", "Hypothyroid"]
 
     @staticmethod
-    def from_y(output: int):
+    def from_y(output: int) -> "PredictOutput":
         match output:
             case 0:
-                return Output(prediction="Negative")
+                return PredictOutput(prediction="Negative")
             case 1:
-                return Output(prediction="Hyperthyroid")
+                return PredictOutput(prediction="Hyperthyroid")
             case 2:
-                return Output(prediction="Hypothyroid")
+                return PredictOutput(prediction="Hypothyroid")
         raise ValueError(f"Wrong output: {output}")
 
 
-@app.post("/", name="predict")
-async def root(data: Input) -> Output:
-    return Output.from_y(model_predict(data.to_x()))
+class PredictImageOutput(BaseModel):
+    prediction: int
+
+    @staticmethod
+    def from_y(output: float) -> "PredictImageOutput":
+        prediction = max(min(int(output), 5), 1)
+        return PredictImageOutput(prediction=prediction)
+
+
+@app.post("/predict", name="predict")
+def predict(data: PerdictInput) -> PredictOutput:
+    return PredictOutput.from_y(model_predict(data.to_x()))
+
+
+@app.post("/predict-image", name="predict-image")
+def predict_image(file: UploadFile) -> PredictImageOutput:
+    return PredictImageOutput.from_y(3.55)  # TODO

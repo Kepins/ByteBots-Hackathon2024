@@ -1,4 +1,7 @@
+import io
 import pickle
+from tensorflow.keras.models import load_model
+from PIL import Image
 from functools import lru_cache
 from typing import Literal
 from fastapi.middleware.cors import CORSMiddleware
@@ -9,12 +12,20 @@ from pydantic import BaseModel
 
 
 @lru_cache
-def load_model():
+def load_prediction_model():
     with open("decisiontree.bin", "rb") as f:
         return pickle.loads(f.read())
 
+@lru_cache
+def load_image_model():
+    return load_model("image_model.keras")
+
 def model_predict(x):
-    model = load_model()
+    model = load_prediction_model()
+    return model.predict(x)
+
+def model_image_predict(x):
+    model = load_image_model()
     return model.predict(x)
 
 
@@ -104,10 +115,16 @@ class PredictImageOutput(BaseModel):
 
 
 @app.post("/predict", name="predict")
-def predict(data: PerdictInput) -> PredictOutput:
+async def predict(data: PerdictInput) -> PredictOutput:
     return PredictOutput.from_y(model_predict(data.to_x()))
 
 
 @app.post("/predict-image", name="predict-image")
-def predict_image(file: UploadFile) -> PredictImageOutput:
-    return PredictImageOutput.from_y(3.55)  # TODO
+async def predict_image(file: UploadFile) -> PredictImageOutput:
+    image_data = await file.read()
+    image = Image.open(io.BytesIO(image_data))
+    image_rgb = image.convert("RGB")
+    resized_image = image_rgb.resize((200, 200))
+    image_matrix = np.expand_dims(np.array(resized_image), axis=0)
+    prediction = model_image_predict([image_matrix])
+    return PredictImageOutput.from_y(prediction + 1)

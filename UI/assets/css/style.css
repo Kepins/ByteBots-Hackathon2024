@@ -1,0 +1,179 @@
+body {
+    background-color: #dee9ff;
+}
+
+.registration-form {
+    padding: 50px 0;
+    margin-top: 50px;
+}
+
+.registration-form form, .result-container {
+    background-color: #fff;
+    max-width: 600px;
+    margin: auto;
+    padding: 50px 70px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.registration-form .form-icon {
+    text-align: center;
+    background-color: #5990ff;
+    font-size: 40px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-bottom: 50px;
+    line-height: 100px;
+}
+
+.registration-form .item {
+    margin-bottom: 25px;
+    padding: 10px 20px;
+}
+
+.registration-form .check-health {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #5990ff;
+    border: none;
+    color: white;
+    margin-top: 20px;
+}
+
+.page-menu {
+    background-color: #fff;
+    font-family: Raleway, sans-serif;
+}
+
+.page-menu .navbar-brand {
+    color: #5990ff;
+    font-weight: bold;
+}
+
+h1 {
+    color: #5990ff;
+    font-family: Raleway, sans-serif;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: Raleway, sans-serif;
+}
+
+h5 {
+    font-family: Raleway, sans-serif;
+    font-weight: 500;
+}
+
+/* footer */
+.page-footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.divider {
+    border-top: 1px solid;
+    border-color: #aaaaaa;
+}
+
+.logo-letter {
+    color:white;
+    background-color:#5990ff;
+}
+
+.special-font {
+    font-family: Raleway, sans-serif;
+}
+
+
+@media only screen and (max-width: 575px) {
+    .footer-second-p {
+        margin-top: 10px;
+    }
+}
+
+.radioBtn .notActive{
+    color: #3276b1;
+    background-color: #fff;
+}
+
+.radioBtn .notActive:hover {
+    color: #fff !important;
+    background-color: #0062cc;
+}
+
+.input-group {
+    align-items: end;
+}
+
+.btn-blue {
+    background-color: #5990ff;
+    border: 1px solid #5990ff;
+    min-width: 100px;
+}
+
+.btn-blue.active {
+    color: #fff !important;
+}
+
+/* progress bar */
+.tile-progress {
+    background-color: #303641;
+    color: #fff;
+}
+.tile-progress {
+    background: #00a65b;
+    color: #fff;
+    margin-bottom: 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.tile-progress .tile-header {
+    padding: 15px 20px;
+    padding-bottom: 40px;
+}
+.tile-progress .tile-progressbar {
+    height: 2px;
+    background: rgba(0,0,0,0.18);
+    margin: 0;
+}
+.tile-progress .tile-progressbar span {
+    background: #fff;
+}
+.tile-progress .tile-progressbar span {
+    display: block;
+    background: #fff;
+    width: 0;
+    height: 100%;
+    -webkit-transition: all 1.5s cubic-bezier(0.230,1.000,0.320,1.000);
+    -moz-transition: all 1.5s cubic-bezier(0.230,1.000,0.320,1.000);
+    -o-transition: all 1.5s cubic-bezier(0.230,1.000,0.320,1.000);
+    transition: all 1.5s cubic-bezier(0.230,1.000,0.320,1.000);
+}
+.tile-progress .tile-footer {
+    padding: 20px;
+    text-align: right;
+    background: rgba(0,0,0,0.1);
+    -webkit-border-radius: 0 0 3px 3px;
+    -webkit-background-clip: padding-box;
+    border-radius: 0px;
+}
+
+.tile-progress {
+    background-color: #303641;
+    color: #fff;
+}
+.tile-progress.tile-blue {
+    background-color: #5990ff;
+    color: #fff;
+}

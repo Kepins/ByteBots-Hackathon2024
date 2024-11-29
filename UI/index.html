@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Byte Bots</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light shadow fixed-top page-menu">
+    <div class="container">
+        <a class="navbar-brand" href="#">Byte Bots</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="registration-form">
+    <form id="thyroid_form" method="POST">
+        <div>
+            <h1 class="text-center"><i class="bi bi-file-earmark-medical"></i></h1>
+            <h2 class="text-center pb-4 mt-4">Check your thyroid health</h2>
+        </div>
+        <div class="form-group">
+            <label class="text-label">Your age</label>
+            <input type="number" id="age" min="0" max="100" class="form-control item inline-block" name="age" placeholder="write a number...">
+        </div>
+        <div class="form-group">
+            <label class="text-label">T3 value</label>
+            <input type="number" step="0.01" class="form-control item" name="T3" placeholder="write a number...">
+        </div>
+        <div class="form-group">
+            <label class="text-label">TT4 value</label>
+            <input type="number" step="0.01" class="form-control item" name="TT4" placeholder="write a number...">
+        </div>
+        <div class="form-group">
+            <label class="text-label">T4U value</label>
+            <input type="number" step="0.01" class="form-control item" name="T4U" placeholder="write a number...">
+        </div>
+        <div class="form-group">
+            <label class="text-label">FTI value</label>
+            <input type="number" step="0.01" class="form-control item" name="FTI" placeholder="write a number...">
+        </div>
+        <div class="form-group">
+            <label class="text-label">TSH value</label>
+            <input type="number" step="0.01" class="form-control item" name="TSH" placeholder="write a number...">
+        </div>
+        <div class="form-group row">
+            <label for="sex" class="control-label text-left d-inline-block pr-4 col-6">Sex</label>
+            <div class="d-inline-block col-6">
+                <div class="input-group d-inline-block text-right">
+                    <div class="btn-group radioBtn">
+                        <a class="btn btn-blue btn-sm notActive" data-toggle="sex" data-title="F">Female</a>
+                        <a class="btn btn-blue btn-sm active" data-toggle="sex" data-title="M">Male</a>
+                    </div>
+                    <input type="hidden" name="sex" id="sex" value="M">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="on_thyroxine" class="control-label text-left d-inline-block pr-4 col-6">On thyroxine</label>
+            <div class="d-inline-block col-6">
+                <div class="input-group d-inline-block text-right">
+                    <div class="btn-group radioBtn text-left">
+                        <a class="btn btn-blue btn-sm notActive" data-toggle="on_thyroxine" data-title="true">Yes</a>
+                        <a class="btn btn-blue btn-sm active" data-toggle="on_thyroxine" data-title="false">No</a>
+                    </div>
+                    <input type="hidden" name="on_thyroxine" id="on_thyroxine" value="false">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="query_on_thyroxine" class="col-6 control-label text-left d-inline-block pr-4">Query on thyroxine</label>
+            <div class="d-inline-block col-6">
+                <div class="input-group d-inline-block text-right">
+                    <div class="btn-group radioBtn">
+                        <a class="btn btn-blue btn-sm notActive" data-toggle="query_on_thyroxine" data-title="true">Yes</a>
+                        <a class="btn btn-blue btn-sm active" data-toggle="query_on_thyroxine" data-title="false">No</a>
+                    </div>
+                    <input type="hidden" name="query_on_thyroxine" id="query_on_thyroxine" value="false">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="on_antithyroid_meds" class="col-6 control-label text-left d-inline-block pr-4">On antithyroid meds</label>
+            <div class="d-inline-block col-6">
+                <div class="input-group d-inline-block text-right">
+                    <div class="btn-group radioBtn">
+                        <a class="btn btn-blue btn-sm notActive" data-toggle="on_antithyroid_meds" data-title="true">Yes</a>
+                        <a class="btn btn-blue btn-sm active" data-toggle="on_antithyroid_meds" data-title="false">No</a>
+                    </div>
+                    <input type="hidden" name="on_antithyroid_meds" id="on_antithyroid_meds" value="false">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="sick" class="col-6 control-label text-left d-inline-block pr-4">sick</label>
+            <div class="d-inline-block col-6">
+                <div class="input-group d-inline-block text-right">
+                    <div class="btn-group radioBtn">
+                        <a class="btn btn-blue btn-sm notActive" data-toggle="sick" data-title="true">Yes</a>
+                        <a class="btn btn-blue btn-sm active" data-toggle="sick" data-title="false">No</a>
+                    </div>
+                    <input type="hidden" name="sick" id="sick" value="false">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="pregnant" class="col-6 control-label text-left d-inline-block pr-4">pregnant</label>
+            <div class="col-6 d-inline-block">
+                <div class="input-group d-inline-block text-right">
+                    <div class="btn-group radioBtn">
+                        <a class="btn btn-blue btn-sm notActive" data-toggle="pregnant" data-title="true">Yes</a>
+                        <a class="btn btn-blue btn-sm active" data-toggle="pregnant" data-title="false">No</a>
+                    </div>
+                    <input type="hidden" name="pregnant" id="pregnant" value="false">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="pregnant" class="col-6 control-label text-left d-inline-block pr-4">thyroid_surgery</label>
+            <div class="col-6 d-inline-block">
+                <div class="input-group d-inline-block text-right">
+                    <div class="btn-group radioBtn">
+                        <a class="btn btn-blue btn-sm notActive" data-toggle="thyroid_surgery" data-title="true">Yes</a>
+                        <a class="btn btn-blue btn-sm active" data-toggle="thyroid_surgery" data-title="false">No</a>
+                    </div>
+                    <input type="hidden" name="thyroid_surgery" id="thyroid_surgery" value="false">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="I131_treatment" class="col-6 control-label text-left d-inline-block pr-4">I131_treatment</label>
+            <div class="d-inline-block col-6">
+                <div class="input-group d-inline-block text-right">
+                    <div class="btn-group radioBtn">
+                        <a class="btn btn-blue btn-sm notActive" data-toggle="I131_treatment" data-title="true">Yes</a>
+                        <a class="btn btn-blue btn-sm active" data-toggle="I131_treatment" data-title="false">No</a>
+                    </div>
+                    <input type="hidden" name="I131_treatment" id="I131_treatment" value="false">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="query_hypothyroid" class="col-6 control-label text-left d-inline-block pr-4">query_hypothyroid</label>
+            <div class="d-inline-block col-6">
+                <div class="input-group d-inline-block text-right">
+                    <div class="btn-group radioBtn">
+                        <a class="btn btn-blue btn-sm notActive" data-toggle="query_hypothyroid" data-title="true">Yes</a>
+                        <a class="btn btn-blue btn-sm active" data-toggle="query_hypothyroid" data-title="false">No</a>
+                    </div>
+                    <input type="hidden" name="query_hypothyroid" id="query_hypothyroid" value="false">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="query_hyperthyroid" class="col-6 control-label text-left d-inline-block pr-4">query_hyperthyroid</label>
+            <div class="d-inline-block col-6">
+                <div class="input-group d-inline-block text-right">
+                    <div class="btn-group radioBtn">
+                        <a class="btn btn-blue btn-sm notActive" data-toggle="query_hyperthyroid" data-title="true">Yes</a>
+                        <a class="btn btn-blue btn-sm active" data-toggle="query_hyperthyroid" data-title="false">No</a>
+                    </div>
+                    <input type="hidden" name="query_hyperthyroid" id="query_hyperthyroid" value="false">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="lithium" class="col-6 control-label text-left d-inline-block pr-4">lithium</label>
+            <div class="d-inline-block col-6">
+                <div class="input-group d-inline-block text-right">
+                    <div class="btn-group radioBtn">
+                        <a class="btn btn-blue btn-sm notActive" data-toggle="lithium" data-title="true">Yes</a>
+                        <a class="btn btn-blue btn-sm active" data-toggle="lithium" data-title="false">No</a>
+                    </div>
+                    <input type="hidden" name="lithium" id="lithium" value="false">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="goitre" class="col-6 control-label text-left d-inline-block pr-4">goitre</label>
+            <div class="d-inline-block col-6">
+                <div class="input-group d-inline-block text-right">
+                    <div class="btn-group radioBtn">
+                        <a class="btn btn-blue btn-sm notActive" data-toggle="goitre" data-title="true">Yes</a>
+                        <a class="btn btn-blue btn-sm active" data-toggle="goitre" data-title="false">No</a>
+                    </div>
+                    <input type="hidden" name="goitre" id="goitre" value="false">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="tumor" class="col-6 control-label text-left d-inline-block pr-4">tumor</label>
+            <div class="d-inline-block col-6">
+                <div class="input-group d-inline-block text-right">
+                    <div class="btn-group radioBtn">
+                        <a class="btn btn-blue btn-sm notActive" data-toggle="tumor" data-title="true">Yes</a>
+                        <a class="btn btn-blue btn-sm active" data-toggle="tumor" data-title="false">No</a>
+                    </div>
+                    <input type="hidden" name="tumor" id="tumor" value="false">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="hypopituitary" class="col-6 control-label text-left d-inline-block pr-4">Hypopituitary</label>
+            <div class="d-inline-block col-6">
+                <div class="input-group d-inline-block text-right">
+                    <div class="btn-group radioBtn">
+                        <a class="btn btn-blue btn-sm notActive" data-toggle="hypopituitary" data-title="true">Yes</a>
+                        <a class="btn btn-blue btn-sm active" data-toggle="hypopituitary" data-title="false">No</a>
+                    </div>
+                    <input type="hidden" name="hypopituitary" id="hypopituitary" value="false">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row mb-4">
+            <label for="psych" class="col-6 control-label text-left d-inline-block pr-4">psych</label>
+            <div class="d-inline-block col-6">
+                <div class="input-group d-inline-block text-right">
+                    <div class="btn-group radioBtn">
+                        <a class="btn btn-blue btn-sm notActive" data-toggle="psych" data-title="true">Yes</a>
+                        <a class="btn btn-blue btn-sm active" data-toggle="psych" data-title="false">No</a>
+                    </div>
+                    <input type="hidden" name="psych" id="psych" value="false">
+                </div>
+            </div>
+        </div>
+        <div class="form-group mt-4">
+            <label class="form-label" for="thyroid_input_image">Attach thyroid image (optional)</label>
+            <input type="file" class="form-control" id="thyroid_input_image" />
+        </div>
+        <div class="form-group align-middle mt-4">
+            <input type="submit" class="btn btn-block check-health special-font" value="Check your health">
+        </div>
+    </form>
+</div>
+
+<div class="result-container container d-none">
+    <h2 class="mb-4">Result</h2>
+    <p>This is your health result based on your medical data:</p>
+    <div class="d-inline-block">
+        <div class="input-group d-inline-block text-right">
+            <div class="btn-group radioBtn">
+                <a class="btn btn-blue btn-sm result-buttons notActive" data-title="Hypothyroid" id="Hypothyroid">Hypothyroid</a>
+                <a class="btn btn-blue btn-sm result-buttons active" data-title="Negative" id="Negative">Negative</a>
+                <a class="btn btn-blue btn-sm result-buttons notActive" data-title="Hyperthyroid" id="Hyperthyroid">Hyperthyroid</a>
+            </div>
+        </div>
+    </div>
+    <div class="d-none mt-4" id="image_result">
+        <div class="tile-progress tile-blue">
+            <div class="tile-header">
+                <h3>Image analyze result</h3>
+                <span>Detected severity of thyroid disease on image</span>
+            </div>
+            <div class="tile-progressbar">
+                <span id="image_progress_bar" style="width: 65.5%;"></span>
+            </div>
+            <div class="tile-footer">
+                <h4>
+                    <span class="pct-counter"><span id="progress_bar_val">2</span>/5</span> disease level
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-4 pt-2 page-footer bg-white">
+    <div class="container p-4">
+        <div class="row mb-4">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="footer-text pull-left">
+                    <div class="d-flex">
+                        <h1 class="font-weight-bold mr-2 px-3 logo-letter"> B </h1>
+                        <h1>Byte bots</h1>
+                    </div>
+                    <p class="special-font">AI developers team who help with diagnosis</p>
+                    <div class="social mt-2 mb-3"><i class="fa fa-facebook-official fa-lg"></i> <i
+                            class="fa fa-instagram fa-lg"></i> <i class="fa fa-twitter fa-lg"></i> <i
+                            class="fa fa-linkedin-square fa-lg"></i> <i class="fa fa-facebook"></i></div>
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-2 d-xs-none"></div>
+            <div class="col-md-3 col-sm-6">
+                <h5>Services</h5>
+                <ul class="special-font">
+                    <li>Development</li>
+                    <li>Health & Care</li>
+                    <li>Artificial Intelligence</li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-6 footer-second-p">
+                <h5>Our Team</h5>
+                <ul class="special-font">
+                    <li>About Us</li>
+                    <li>Blog</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+        </div>
+        <div class="divider mb-4"></div>
+        <div>© 2024 ByteBots</div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+</body>
+</html>

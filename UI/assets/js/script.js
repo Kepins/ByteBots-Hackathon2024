@@ -34,7 +34,7 @@ $('#thyroid_form').submit(function (event) {
     console.log(json);
 
     $.ajax({
-        url: 'http://localhost:8000',
+        url: 'http://localhost:8000/predict',
         method: 'POST',
         contentType: "application/json; charset=utf-8",
         data: json,
@@ -47,8 +47,10 @@ $('#thyroid_form').submit(function (event) {
             alert('Your form was not sent successfully.');
             console.error(error);
         }
-    });
-});
+    })
+
+    attachImage()
+})
 
 function disableAllResultButtons() {
     var elements = document.querySelectorAll('.result-buttons');
@@ -77,4 +79,46 @@ function enableResultButton(name) {
             elements[i].classList.remove('d-none');
         }
     }
+}
+
+function changeProgressBarValue(value) {
+    if (value >= 0 && value <= 5) {
+        var container = document.getElementById('image_result');
+        container.classList.remove('d-none');
+
+        var width = (value / 5) * 100;
+
+        var progress = document.getElementById('image_progress_bar');
+        progress.style.width = width + '%';
+        progress.innerHTML = width + '%';
+
+        document.getElementById("progress_bar_val").innerHTML = value;
+    }
+}
+
+function attachImage() {
+    var image = document.getElementById('thyroid_input_image').files[0];
+
+    if (!image) {
+        return
+    }
+
+    var formData = new FormData()
+    formData.append('file', image)
+
+    $.ajax({
+        url: 'http://localhost:8000/predict-image',
+        method: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            console.log(response)
+            changeProgressBarValue(response.prediction)
+        },
+        error: function (xhr, status, error) {
+            alert('Your form was not sent successfully.');
+            console.error(error);
+        }
+    });
 }

@@ -2,9 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Easiest Way to Add Input Masks to Your Forms</title>
+    <title>Byte Bots</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
           rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -236,7 +235,7 @@
                 </div>
             </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group row mb-4">
             <label for="psych" class="col-6 control-label text-left d-inline-block pr-4">psych</label>
             <div class="d-inline-block col-6">
                 <div class="input-group d-inline-block text-right">
@@ -247,6 +246,10 @@
                     <input type="hidden" name="psych" id="psych" value="false">
                 </div>
             </div>
+        </div>
+        <div class="form-group mt-4">
+            <label class="form-label" for="thyroid_input_image">Attach thyroid image (optional)</label>
+            <input type="file" class="form-control" id="thyroid_input_image" />
         </div>
         <div class="form-group align-middle mt-4">
             <input type="submit" class="btn btn-block check-health special-font" value="Check your health">
@@ -266,18 +269,18 @@
             </div>
         </div>
     </div>
-    <div class="image_result mt-4">
+    <div class="d-none mt-4" id="image_result">
         <div class="tile-progress tile-blue">
             <div class="tile-header">
                 <h3>Image analyze result</h3>
                 <span>Detected severity of thyroid disease on image</span>
             </div>
             <div class="tile-progressbar">
-                <span style="width: 65.5%;"></span>
+                <span id="image_progress_bar" style="width: 65.5%;"></span>
             </div>
             <div class="tile-footer">
                 <h4>
-                    <span class="pct-counter">2/5</span> disease level
+                    <span class="pct-counter"><span id="progress_bar_val">2</span>/5</span> disease level
                 </h4>
             </div>
         </div>
